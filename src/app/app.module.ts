@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './service/in-memory-data.service';
+import { AgregarComponent } from './components/agregar/agregar.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { InMemoryDataService } from './service/in-memory-data.service';
     DetalleComponent,
     NuevoComponent,
     AlertasComponent,
-    EstrenosComponent
+    EstrenosComponent,
+    HomeComponent,
+    AgregarComponent
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,7 @@ import { DetalleComponent } from './detalle/detalle.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/estrenos', pathMatch: 'full' },
-  { path: 'rutas', component: EstrenosComponent },
+  { path: 'estrenos', component: EstrenosComponent },
   { path: 'juegos', component: HomeComponent },
   { path: 'juego/:id', component: DetalleComponent },
 ];

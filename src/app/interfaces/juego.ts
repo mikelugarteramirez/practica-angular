@@ -1,7 +1,7 @@
 import { Genero } from "./genero";
 import { Plataforma } from "./plataforma";
 
-const interface Juego {
+export interface Juego {
     id: number,
     nombre: string,
     desarrolador: string,
@@ -10,5 +10,6 @@ const interface Juego {
     descuento: number,//porcentaje
     fechaLanzamiento: Date,
     genero?: Genero,
+    precioDescuento?: number,
     plataformas?: [Plataforma],
 }

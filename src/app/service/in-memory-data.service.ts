@@ -16,7 +16,7 @@ export class InMemoryDataService implements InMemoryDbService {
         descuento: 0,
         fechaLanzamiento: new Date(new Date().getTime()-10),
         genero: {nombre: "Acción"},
-        plataformas: [{nombre: "PS",icon: "https://upload.wikimedia.org/wikipedia/commons/0/00/PlayStation_logo.svg"}],
+        plataformas: [{nombre: "PS",icon: "https://upload.wikimedia.org/wikipedia/commons/0/00/PlayStation_logo.svg"}, {nombre: "Xbox",icon: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Xbox_one_logo.svg"}],
       },
       {
          id: 2,
@@ -35,7 +35,7 @@ export class InMemoryDataService implements InMemoryDbService {
           desarrolador: "Nintendo",
           descripcion: "Una aventura más del duende melodía",
           precio: 999,
-          descuento: 0,
+          descuento: 10,
           fechaLanzamiento: new Date(),
           genero: {nombre: "Aventura"},
           plataformas: [{nombre: "Switch",icon: "https://upload.wikimedia.org/wikipedia/commons/8/8a/NintendoSwitchLogo.svg"}],

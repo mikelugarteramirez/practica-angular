@@ -1,4 +1,20 @@
-
+<app-agregar 
+*ngIf="!showAdd"
+(eventClickAdd)="mostrarFormularioAgregar($event)"
+[show]="showAdd"></app-agregar>
+<div *ngIf="showAdd">
+    <label for="new">Nombre: </label>
+    <input id="new" #nombre />
+    <label for="new">Nombre: </label>
+    <input id="new" #nombre />
+    <label for="new">Nombre: </label>
+    <input id="new" #nombre />
+    <label for="new">Nombre: </label>
+    <input id="new" #nombre />
+    <button type="button" class="add-button" (click)="add(nombre.value); nombre.value=''">
+    Agregar
+    </button>
+</div>
 <ul class="juegos-list">
     <li *ngFor="let juego of juegos">
         <a routerLink="/juego/{{juego.id}}">
@@ -7,16 +23,13 @@
         <div><span>Descripci&oacute;n: </span>{{juego.descripcion}}</div>
         <div><span>G&eacute;nero: </span>{{juego.genero?.nombre}}</div>
         <div><span>Precio: </span>{{juego.precio}}</div>
+        <div *ngIf="juego.descuento"><span>Precio Descuento: </span>{{juego.descuento}}</div>
         <div><span>Desarrolador: </span>{{juego.desarrolador}}</div>
-        <div><span>Fecha de lanzamiento: </span>{{juego.fechaLanzamiento}}</div>
-        <div><img src="{{juego.plataformas![0].icon}}"></div>
+        <div><span>Fecha de lanzamiento: </span>{{juego.fechaLanzamiento | date}}</div>
+        <div class="imagePlatforms"><img *ngFor="let plataforma of juego.plataformas" src="{{plataforma.icon}}" width="50px" height="50px"></div>
     </li>
 </ul>
 
 <div>
-    <label for="new">Nombre: </label>
-    <input id="new" #nombre />
-    <button type="button" class="add-button" (click)="add(nombre.value); nombre.value=''">
-      Agregar
-    </button>
+    
   </div>

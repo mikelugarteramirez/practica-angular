@@ -4,11 +4,12 @@ import { HomeService } from '../service/home.service';
 
 @Component({
   selector: 'app-estrenos',
-  templateUrl: './component.html',
+  templateUrl: './estrenos.component.html',
   styleUrls: ['./estrenos.component.css']
 })
 export class EstrenosComponent implements OnInit {
   juegos: Juego[] = [];
+  limiteEstrenos = 2629743;
 
   constructor(private homeService: HomeService) {}
 
@@ -19,7 +20,11 @@ export class EstrenosComponent implements OnInit {
   getJuegos(): void {
     //this.juegos = this.homeService.getJuegos();
     // this.homeService.getJuegos().subscribe(juegos => this.juegos = juegos.slice(1, 2));
-    this.homeService.getJuegos().subscribe(juegos => this.juegos = juegos);
+    this.homeService.getJuegos().subscribe(juegos => {
+      console.log(juegos);
+      
+      this.juegos = juegos.filter(juego => juego.fechaLanzamiento )
+    });
   }
 
 }

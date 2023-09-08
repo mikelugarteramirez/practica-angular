@@ -4,6 +4,7 @@ import { JUEGOS } from '../mock';
 import { Observable, of } from 'rxjs';
 import { HomeService } from '../service/home.service';
 import { AlertasService } from '../service/alertas.service';
+import { filterJuegos } from '../utils/helpers';
 
 @Component({
   selector: 'app-lista',
@@ -12,16 +13,21 @@ import { AlertasService } from '../service/alertas.service';
 })
 export class HomeComponent implements OnInit {
   juegos: Juego[] = [];
+  showAdd: boolean = false;
 
   constructor(private homeService: HomeService, public alertasService: AlertasService) {}
 
   ngOnInit(): void {
     this.getJuegos();
   }
+
+  mostrarFormularioAgregar(valor: boolean) {
+    this.showAdd = valor;
+  }
   
   getJuegos(): void {
     //this.juegos = this.homeService.getJuegos();
-    this.homeService.getJuegos().subscribe(juegos => this.juegos = juegos);
+    this.homeService.getJuegos().subscribe(juegos => this.juegos = filterJuegos(juegos));
   }
 
   add(nombre: string): void {

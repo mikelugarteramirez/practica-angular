@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './service/in-memory-data.service';
 import { AgregarComponent } from './components/agregar/agregar.component';
+import { FormularioJuegoComponent } from './components/formulario-juego/formulario-juego.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AgregarComponent } from './components/agregar/agregar.component';
     AlertasComponent,
     EstrenosComponent,
     HomeComponent,
-    AgregarComponent
+    AgregarComponent,
+    FormularioJuegoComponent
   ],
   imports: [
     BrowserModule,

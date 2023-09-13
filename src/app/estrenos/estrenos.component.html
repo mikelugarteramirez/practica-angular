@@ -1,15 +1,6 @@
 <h2>Estrenos</h2>
-<div class="estrenoz">
-  <a *ngFor="let juego of juegos" routerLink="/juego/{{juego.id}}" >
-    <h2>{{juego.nombre}}</h2>
-    <div><span>Descripci&oacute;n: </span>{{juego.descripcion}}</div>
-    <div><span>G&eacute;nero: </span>{{juego.genero?.nombre}}</div>
-    <div><span>Precio: </span>{{juego.precio}}</div>
-    <div><span>Precio final: </span>{{juego.precio * juego.descuento}}</div>
-    <div><span>Desarrolador: </span>{{juego.desarrolador}}</div>
-    <div><span>Fecha de lanzamiento: </span>{{juego.fechaLanzamiento}}</div>
-    <div><img src="{{juego.plataformas![0].icon}}"></div>
-  </a>
+<div class="estrenos">
+  <app-card-juego [juego]="juego" *ngFor="let juego of juegos"></app-card-juego>
 </div>
 
 

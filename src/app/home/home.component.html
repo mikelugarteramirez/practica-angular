@@ -3,17 +3,7 @@
 (eventClickAdd)="mostrarFormularioAgregar($event)"
 [show]="showAdd"></app-agregar>
 <div *ngIf="showAdd">
-    <label for="new">Nombre: </label>
-    <input id="new" #nombre />
-    <label for="new">Nombre: </label>
-    <input id="new" #nombre />
-    <label for="new">Nombre: </label>
-    <input id="new" #nombre />
-    <label for="new">Nombre: </label>
-    <input id="new" #nombre />
-    <button type="button" class="add-button" (click)="add(nombre.value); nombre.value=''">
-    Agregar
-    </button>
+    <app-formulario-juego typeForm="create" (submitFormEvent)="add($event)"></app-formulario-juego>
 </div>
 <ul class="juegos-list">
     <li *ngFor="let juego of juegos">

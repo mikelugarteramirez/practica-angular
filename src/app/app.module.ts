@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { DetalleComponent } from './detalle/detalle.component';
 import { NuevoComponent } from './nuevo/nuevo.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AlertasComponent } from './alertas/alertas.component';
 import { EstrenosComponent } from './estrenos/estrenos.component';
 
@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './service/in-memory-data.service';
 import { AgregarComponent } from './components/agregar/agregar.component';
+import { FormularioJuegoComponent } from './components/formulario-juego/formulario-juego.component';
+import { CardJuegoComponent } from './components/card-juego/card-juego.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +26,15 @@ import { AgregarComponent } from './components/agregar/agregar.component';
     AlertasComponent,
     EstrenosComponent,
     HomeComponent,
-    AgregarComponent
+    AgregarComponent,
+    FormularioJuegoComponent,
+    CardJuegoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }

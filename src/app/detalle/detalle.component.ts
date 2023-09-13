@@ -27,18 +27,20 @@ export class DetalleComponent {
   getJuego(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.homeService.getJuego(id)
-      .subscribe(current => this.juego = current);
+      .subscribe(current => {
+        this.juego = current
+        console.log(this.juego);
+      });
+    
   }
 
   regresar(): void {
     this.location.back();
   }
 
-  save(): void {
-    if (this.juego) {
-      this.homeService.update(this.juego)
+  save(juego: Juego): void {
+    this.homeService.update(juego)
         .subscribe(() => this.regresar());
-    }
   }
 
 }

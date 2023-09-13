@@ -30,21 +30,8 @@ export class HomeComponent implements OnInit {
     this.homeService.getJuegos().subscribe(juegos => this.juegos = filterJuegos(juegos));
   }
 
-  add(nombre: string): void {
-    nombre = nombre.trim();
-    if (!nombre) { return; }
-    const nuevo: Juego = {
-      id: JUEGOS.length +1,
-      nombre: nombre,
-      desarrolador: "",
-      descripcion: "",
-      precio: 0,
-      descuento: 0,
-      fechaLanzamiento: new Date(),
-      genero: undefined,
-      plataformas: undefined,
-    };
-    this.homeService.add(nuevo)
+  add(juego: Juego) {
+    this.homeService.add(juego)
       .subscribe(current => {
         this.juegos.push(current);
       });

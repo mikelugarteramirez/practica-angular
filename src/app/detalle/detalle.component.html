@@ -1,28 +1,8 @@
 <div *ngIf="juego">
-
     <h2>{{juego.nombre | uppercase}}</h2>
-    <div>
-      <input id="juego-nombre" value="{{juego.nombre}}" placeholder="nombre">
-    </div>
-    <div>
-      <input id="juego-descripcion" value="{{juego.descripcion}}" placeholder="descripcion">
-    </div>
-    <div>
-      <input id="juego-desarrolador" value="{{juego.desarrolador}}" placeholder="desarrolador">
-    </div>
-    <div>
-      <input id="juego-precio" value="{{juego.precio}}" placeholder="precio">
-    </div>
-    <div>
-      <input id="juego-descuento" value="{{juego.descuento}}" placeholder="descuento">
-    </div>
-    <div>
-      <input id="juego-genero" [(ngModel)]="juego.genero!.nombre" placeholder="genero">
-    </div>
-    <div>
-      <input id="juego-plataformas" [(ngModel)]="juego.plataformas![0].icon" placeholder="icon">
-    </div>
-    <button type="button" (click)="save()">Guardar</button>
-    <button type="button" >Eliminar</button>
-    <button type="button" (click)="regresar()">Regresar</button>
+    <app-formulario-juego typeForm="edit" 
+    [dataForm]="juego" 
+    (submitFormEvent)="save($event)"
+    (returnEvent)="regresar()"
+    ></app-formulario-juego>
   </div>

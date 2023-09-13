@@ -1,0 +1,44 @@
+<form  [formGroup]="formulario" (ngSubmit)="submitForm()" class="formulario">
+    <div class="inputForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" formControlName="nombre" name="nombre">
+    </div>
+    <div class="inputForm">
+        <label for="desarrolador">Desarrollador:</label>
+        <input type="text" formControlName="desarrolador" name="desarrolador">
+    </div>
+    <div class="inputForm">
+        <label for="precio">Precio:</label>
+        <input type="text" formControlName="precio" name="precio">
+    </div>
+    <div class="inputForm">
+        <label for="descuento">Descuento:</label>
+        <input type="text" formControlName="descuento" name="descuento">
+    </div>
+    <div class="inputForm">
+        <label for="fechaLanzamiento">Fecha de lanzamiento:</label>
+        <input type="text" formControlName="fechaLanzamiento" name="fechaLanzamiento">
+    </div>
+    <div class="inputForm" [formGroup]="genero">
+        <label for="genero">Genero:</label>
+        <input type="text" formControlName="nombre" name="genero">
+    </div>
+    <div>
+        <h5>Plataformas</h5>
+        <div [formGroup]="formPlatform" class="plataformasForm" *ngFor="let formPlatform of plataformas; let i=index">
+            <div class="inputForm">
+                <label for="plataformaNombre">Nombre:</label>
+                <input type="text" formControlName="nombre" name="plataformaNombre">
+            </div>
+            <div class="inputForm">
+                <label for="icon">Icono:</label>
+                <input type="text" formControlName="icon" name="icon">
+            </div>
+            <button (click)="quitarPlataforma(i)">Quitar</button>
+        </div>
+        <button type="button" (click)="agregarPlataforma()">Agregar Plataforma</button>
+    </div>
+    <button [disabled]="!formulario.valid" type="submit">{{typeForm=='create' ? 'Agregar juego' : 'Guardar'}}</button>
+    <button *ngIf="typeForm == 'edit'" (click)="eliminarJuego()" type="button">Eliminar</button>
+    <button *ngIf="typeForm == 'edit'" (click)="regresar()" type="button">Regresar</button>
+</form>

@@ -3,31 +3,10 @@
 (eventClickAdd)="mostrarFormularioAgregar($event)"
 [show]="showAdd"></app-agregar>
 <div *ngIf="showAdd">
-    <label for="new">Nombre: </label>
-    <input id="new" #nombre />
-    <label for="new">Nombre: </label>
-    <input id="new" #nombre />
-    <label for="new">Nombre: </label>
-    <input id="new" #nombre />
-    <label for="new">Nombre: </label>
-    <input id="new" #nombre />
-    <button type="button" class="add-button" (click)="add(nombre.value); nombre.value=''">
-    Agregar
-    </button>
+    <app-formulario-juego typeForm="create" (submitFormEvent)="add($event)"></app-formulario-juego>
 </div>
 <ul class="juegos-list">
-    <li *ngFor="let juego of juegos">
-        <a routerLink="/juego/{{juego.id}}">
-            <span class="badge">{{juego.id}}</span> {{juego.nombre}}
-        </a>
-        <div><span>Descripci&oacute;n: </span>{{juego.descripcion}}</div>
-        <div><span>G&eacute;nero: </span>{{juego.genero?.nombre}}</div>
-        <div><span>Precio: </span>{{juego.precio}}</div>
-        <div *ngIf="juego.descuento"><span>Precio Descuento: </span>{{juego.descuento}}</div>
-        <div><span>Desarrolador: </span>{{juego.desarrolador}}</div>
-        <div><span>Fecha de lanzamiento: </span>{{juego.fechaLanzamiento | date}}</div>
-        <div class="imagePlatforms"><img *ngFor="let plataforma of juego.plataformas" src="{{plataforma.icon}}" width="50px" height="50px"></div>
-    </li>
+    <app-card-juego [juego]="juego" *ngFor="let juego of juegos"></app-card-juego>
 </ul>
 
 <div>
